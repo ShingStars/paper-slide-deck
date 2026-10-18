@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="author" content="{{DECK_AUTHOR}}">
+  <title>{{DECK_TITLE}}</title>
+  <style>{{DECK_CSS}}</style>
+</head>
+<body>
+  <main class="stage" id="deck" aria-label="{{DECK_TITLE}}">
+{{DECK_SLIDES}}
+  </main>
+  <nav class="slide-nav" aria-label="幻灯片导航">
+    <button class="nav-button nav-prev" type="button" aria-label="上一页"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 16V4M6 8l4-4 4 4"/></svg></button>
+    <div class="nav-dots" aria-label="选择幻灯片"></div>
+    <output class="nav-counter" aria-live="polite" aria-atomic="true"></output>
+    <button class="nav-button nav-next" type="button" aria-label="下一页"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M6 12l4 4 4-4"/></svg></button>
+    <button class="nav-button nav-fullscreen" type="button" aria-label="进入全屏"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 8V3h5M12 3h5v5M17 12v5h-5M8 17H3v-5"/></svg></button>
+  </nav>
+  <div class="deck-status" role="status" aria-live="polite"></div>
+  <noscript><div class="no-script">JavaScript 未启用，以下以连续阅读方式展示全部页面。</div></noscript>
+  <script>{{DECK_JS}}</script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="author" content="">
+  <title>纸感网页演示 · 组件与版式示例</title>
+  <style>:root{--page-bg:#f4efe8;--paper:#faf7ef;--ink:#33291f;--body:#807669;--muted:#a29889;--line:#d7cdbf;--rose:#a56b62;--rose-bg:#f0e2db;--blue:#507d98;--blue-bg:#e2e7e8;--yellow:#b88a29;--yellow-bg:#f2e6c6;--cyan:#3e9295;--cyan-bg:#e0ede8;--green:#688d7d;--green-bg:#e3e8df;--active:#a32922;--code-bg:#1a1a2e;--code-bar:#2a2b40;--deck-scale:1;--serif:Georgia,"Noto Serif SC","Songti SC",SimSun,serif;--heading:"Times New Roman","Noto Serif SC","Songti SC",SimSun,serif;--mono:Consolas,"Courier New",monospace}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;width:100%}body{background:var(--page-bg);color:var(--body);font-family:var(--serif);font-size:22px;line-height:1.65;overflow:auto}body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23877762' filter='url(%23n)' d='M0 0h160v160H0z'/%3E%3C/svg%3E")}button{font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}button:focus-visible,[tabindex]:focus-visible,a:focus-visible{outline:2px solid var(--rose);outline-offset:4px}button:disabled{cursor:default;opacity:.33}a{color:var(--blue);text-underline-offset:4px}p{margin:0 0 14px;font-feature-settings:"palt"}p:last-child{margin-bottom:0}h1,h2,h3{color:var(--ink);font-family:var(--heading);margin:0;font-weight:700}h3{font-size:27px;line-height:1.4}ul,ol{margin:12px 0 0;padding-left:1.3em}li{padding-left:3px;margin:6px 0}strong{color:#62564a}code,.mono{font-family:var(--mono)}:not(pre)>code{background:var(--rose-bg);color:#a16058;border-radius:4px;padding:2px 7px;font-size:.88em}blockquote{margin:0}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* Without JavaScript all pages remain readable; runtime enables slideshow mode. */
+.stage{width:1440px;margin:32px auto}.slide{position:relative;width:1440px;height:810px;padding:38px 56px 36px;display:flex;flex-direction:column;background:var(--paper);border:2px solid var(--line);border-radius:15px;box-shadow:0 7px 29px #51433126;margin-bottom:28px}.slide::before{content:"";position:absolute;left:56px;right:56px;top:0;border-top:4px dashed #d2a59b;opacity:.6;border-radius:3px}.slide-heading{text-align:center;flex:0 0 auto;margin-bottom:28px}.part{font:16px/1.5 var(--mono);letter-spacing:2px;color:var(--rose);margin-bottom:9px}.slide-heading h2{font-size:38px;line-height:1.35}.slide-heading h2::after{content:"";display:block;width:70px;height:3px;background:#b9877c;margin:13px auto 0;opacity:.85}.subtitle{font-size:21px;line-height:1.55;color:#94897b;margin-top:10px}.slide-body{flex:1;min-height:0;display:flex;flex-direction:column;gap:25px}.slide-footer{font-size:15px;line-height:1.5;color:var(--muted);padding-top:18px;flex:none}.slide-footer:empty{display:none}.deck-ready{overflow:hidden}.deck-ready .stage{position:fixed;left:calc((100% - 68px)/2);top:50%;width:1440px;height:810px;margin:0;transform:translate(-50%,-50%) scale(var(--deck-scale));transform-origin:center}.deck-ready .slide{position:absolute;inset:0;margin:0}.slide.is-active{animation:page-enter .22s ease-out}.slide-nav{display:none}.deck-ready .slide-nav{display:flex}.stack{display:flex;flex-direction:column;gap:24px;min-width:0;min-height:0}.two-column{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px;min-height:0;min-width:0}.two-column.wide-left{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}.two-column.wide-right{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}.fill{flex:1;min-height:0}.center{text-align:center}.align-center{align-items:center;justify-content:center}.tag-row{display:flex;gap:12px;flex-wrap:wrap}.badge{display:inline-block;width:fit-content;max-width:100%;padding:3px 11px;border-radius:5px;font:15px/1.6 var(--mono);overflow-wrap:anywhere;vertical-align:middle}.rose{color:var(--rose);background:var(--rose-bg)}.blue{color:var(--blue);background:var(--blue-bg)}.yellow{color:var(--yellow);background:var(--yellow-bg)}.cyan{color:var(--cyan);background:var(--cyan-bg)}.green{color:var(--green);background:var(--green-bg)}
+/* Hero */
+.hero{display:flex;flex:1;flex-direction:column;justify-content:center;align-items:flex-start;max-width:1120px;gap:25px}.hero .part{margin-bottom:0}.hero h1{font-size:72px;line-height:1.3;letter-spacing:-1px}.hero h1::after{content:"";display:block;width:90px;height:4px;background:#b9877c;margin-top:24px}.hero-lead{max-width:900px;font-size:26px;line-height:1.8}.hero.center{align-items:center;margin:auto}.hero.center h1::after{margin-left:auto;margin-right:auto}.hero.center .tag-row{justify-content:center}
+/* Window */
+.window-group{display:flex;flex-direction:column;min-width:0;min-height:0;gap:6px}.file-label{border-radius:12px;background:var(--yellow-bg);color:var(--yellow);font:15px/23px var(--mono);padding:1px 12px}.window{display:flex;flex-direction:column;min-width:0;min-height:0;max-height:100%;border:1px solid #4d4b5c;border-radius:8px;overflow:hidden;background:var(--code-bg);box-shadow:0 3px 8px #302a2322}.window-bar{display:flex;align-items:center;gap:12px;min-height:45px;padding:0 16px;background:var(--code-bar);border-bottom:1px solid #3c3b50;flex:none}.traffic{display:flex;gap:7px}.traffic i{display:block;width:11px;height:11px;border-radius:50%;background:#ff6258}.traffic i:nth-child(2){background:#ffbe30}.traffic i:nth-child(3){background:#27c443}.window-title{font:14px var(--mono);color:#9591a7}.copy-code{margin-left:auto;border:1px solid #4a495b;border-radius:5px;color:#aaa6ba;background:#36374b;font:14px/25px var(--mono);padding:0 10px}.copy-code:hover{background:#444459;color:#e1deea}.window-body{overflow:auto;padding:22px 24px;min-height:0;max-height:470px;scrollbar-width:thin;scrollbar-color:#48455c var(--code-bg)}.window pre{margin:0;color:#d7d5df;font:17px/1.7 var(--mono);tab-size:2;white-space:pre}.window pre code{font:inherit;background:none;color:inherit;padding:0}.window-body::-webkit-scrollbar{width:8px;height:8px}.window-body::-webkit-scrollbar-thumb{background:#48455c;border-radius:5px}.window-body::-webkit-scrollbar-track{background:var(--code-bg)}
+/* Table */
+.table-wrap{width:100%;overflow:auto;min-width:0;scrollbar-width:thin;scrollbar-color:var(--line) transparent}table{width:100%;border-collapse:collapse;text-align:left;font-size:20px;line-height:1.65}th{color:#913b30;font-weight:bold;border-bottom:2px solid #cfc4b5;padding:12px 16px;font-family:var(--heading);white-space:nowrap}td{padding:15px 16px;border-bottom:1px solid #e4dccf;vertical-align:top}td:first-child{color:var(--blue)}tbody tr:last-child td{border-bottom-color:var(--line)}.compact-table table{font-size:18px}.compact-table th,.compact-table td{padding:9px 12px}
+/* Grid and TwoColumn panels */
+.grid{display:grid;gap:24px;min-width:0;min-height:0}.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.info-card,.compare-panel{padding:25px 27px;border:1px solid #ded4c6;border-radius:10px;background:#fcf9f240;min-width:0}.info-card h3,.compare-panel h3{margin:14px 0 10px}.info-card p{font-size:20px;line-height:1.75}.compare-panel{border-top:3px solid #c5b09b}.compare-panel p,.compare-panel li{font-size:21px}.note{min-width:0}.note .badge{margin-bottom:6px}.note p{font-size:21px;line-height:1.65}
+/* QuoteCard and Stats */
+.quote-card{padding:26px 32px;border-left:3px solid #bd9184;border-radius:0 10px 10px 0;background:#f0e2db80;color:#6d5a4f}.quote-card p{font-size:27px;line-height:1.7;margin:0}.quote-card cite{display:block;font-size:16px;color:var(--muted);font-style:normal;margin-top:12px}.quote-card.large{padding:36px 44px}.quote-card.large p{font-size:38px;line-height:1.65}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}.stat{padding:24px 27px;border-top:2px solid #c8b7a1;border-bottom:1px solid var(--line)}.stat-value{font-family:var(--heading);font-size:64px;font-weight:bold;line-height:1.3;color:#8b4137;white-space:nowrap}.stat-value span{font-size:21px;font-weight:400;color:var(--muted);margin-left:10px}.stat h3{font-size:25px;margin:12px 0 8px}.stat p{font-size:19px;line-height:1.7}
+/* Navigation is derived from real slide elements. */
+.slide-nav{position:fixed;right:15px;top:50%;transform:translateY(-50%);width:52px;max-height:calc(100dvh - 30px);padding:12px 6px;border:1px solid #dfd6ca;border-radius:28px;background:#faf7f0ed;box-shadow:0 3px 9px #69513712;align-items:center;flex-direction:column;gap:10px;z-index:5}.nav-button{display:flex;justify-content:center;align-items:center;flex:none;width:34px;height:31px;padding:6px;border:0;background:transparent;color:#a59c8b;border-radius:5px}.nav-button:hover:enabled{color:var(--active);background:#f0e2db80}.nav-button svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;fill:none}.nav-dots{display:flex;flex-direction:column;gap:11px;align-items:center;overflow:auto;max-height:55dvh;padding:4px 6px;scrollbar-width:none;min-height:0}.nav-dots::-webkit-scrollbar{display:none}.nav-dot{width:13px;height:13px;min-height:13px;flex-shrink:0;background:#d5cabb;border:0;border-radius:50%;padding:0;position:relative}.nav-dot::after{content:"";position:absolute;inset:-4px;border-radius:50%}.nav-dot[aria-current="step"]{background:var(--active);box-shadow:0 0 0 2px var(--active)}.nav-counter{font:italic 13px/1.4 var(--mono);color:#9f9586;white-space:nowrap}.nav-fullscreen{border-top:1px solid #e5dbcd;padding-top:9px;height:34px}.no-script{padding:12px;text-align:center;font-size:16px}@keyframes page-enter{from{opacity:.2;translate:0 6px}to{opacity:1;translate:0 0}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.deck-status{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);max-width:calc(100% - 110px);padding:9px 18px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--body);font-size:14px;line-height:1.6;box-shadow:0 3px 13px #51433116;z-index:10}.deck-status:empty{display:none}
+@media(max-width:720px){body{font-size:18px}.deck-ready{overflow:auto}.stage,.deck-ready .stage{position:relative;left:auto;top:auto;width:auto;height:auto;margin:0;padding:12px 12px 92px;transform:none}.slide,.deck-ready .slide{position:relative;inset:auto;width:100%;height:auto;min-height:calc(100svh - 108px);padding:27px 20px 28px;margin:0 0 16px}.slide::before{left:20px;right:20px}.slide-heading{margin-bottom:25px}.slide-heading h2{font-size:27px}.part{font-size:12px;letter-spacing:1.4px}.subtitle{font-size:17px}.slide-body{gap:24px}.slide-footer{font-size:12px;padding-top:22px}.hero{gap:22px;max-width:100%;min-height:430px}.hero h1{font-size:clamp(36px,10vw,54px);letter-spacing:0}.hero-lead{font-size:20px}.hero h1::after{width:68px;height:3px}.hero.center{text-align:left;align-items:flex-start}.hero.center h1::after{margin-left:0}.hero.center .tag-row{justify-content:flex-start}.two-column,.two-column.wide-left,.two-column.wide-right,.cols-2,.cols-3,.cols-4,.stats{grid-template-columns:minmax(0,1fr)}.grid,.two-column{gap:19px}.stack{gap:20px}.badge{font-size:12px;padding:2px 9px}.info-card,.compare-panel{padding:21px 22px}.info-card h3,.compare-panel h3,h3{font-size:24px}.info-card p,.compare-panel p,.compare-panel li,.note p{font-size:18px}.window-bar{padding:0 12px;gap:10px}.window-title{font-size:12px}.copy-code{font-size:12px}.window-body{padding:18px 16px;max-height:390px}.window pre{font-size:13px}.file-label{font-size:12px}.table-wrap table{min-width:560px;font-size:16px}.compact-table table{min-width:460px;font-size:15px}th,td{padding:10px 12px}.quote-card,.quote-card.large{padding:22px 23px}.quote-card p,.quote-card.large p{font-size:23px}.quote-card cite{font-size:13px}.stat{padding:20px 22px}.stat-value{font-size:51px}.stat-value span{font-size:18px}.stat h3{font-size:23px}.stat p{font-size:17px}.slide-nav{top:auto;bottom:12px;left:12px;right:12px;width:auto;height:57px;max-height:none;transform:none;border-radius:29px;flex-direction:row;gap:8px;padding:7px 12px}.nav-dots{flex:1;min-width:0;flex-direction:row;gap:13px;max-height:none;padding:7px}.nav-button{width:30px;height:30px}.nav-counter{font-size:12px}.nav-fullscreen{border:0;padding:6px}.nav-prev svg{rotate:-90deg}.nav-next svg{rotate:-90deg}}
+@media(max-width:720px){.deck-status{bottom:82px;max-width:calc(100% - 36px);font-size:12px;width:max-content}}
+@media print{@page{size:A4 landscape;margin:8mm}body,.deck-ready{overflow:visible;background:white;font-size:16px}body::before,.slide-nav,.no-script,.deck-status{display:none!important}.stage,.deck-ready .stage{position:static;width:auto;height:auto;margin:0;padding:0;transform:none}.slide,.deck-ready .slide,.slide[hidden]{display:flex!important;position:relative;inset:auto;width:277mm;height:190mm;min-height:0;margin:0;border-width:1px;box-shadow:none;break-after:page;page-break-after:always;padding:8mm 11mm;zoom:.88}.slide:last-child{break-after:auto;page-break-after:auto}.slide.is-active{animation:none}.window-body{max-height:120mm}.copy-code{display:none}.slide-heading{margin-bottom:16px}.slide-heading h2{font-size:30px}.hero h1{font-size:58px}}
+</style>
+</head>
+<body>
+  <main class="stage" id="deck" aria-label="纸感网页演示 · 组件与版式示例">
+<section class="slide" id="slide-cover" data-title="让文本成为一场讲述">
+  <div class="slide-body">
+    <div class="hero">
+      <div class="part">/ PAPER SLIDE DECK</div>
+      <h1>让文本<br>成为一场讲述。</h1>
+      <p class="hero-lead">保留米白纸张的温度，让代码、表格、卡片与结论<br>在同一套视觉语言中，自由组合。</p>
+      <div class="tag-row"><span class="badge rose">内容驱动编排</span><span class="badge cyan">单文件 · 可离线打开</span><span class="badge blue">真实幻灯片导航</span></div>
+    </div>
+  </div>
+  <footer class="slide-footer">组件示例演示文稿 · 使用方向键或右侧圆点翻页</footer>
+</section>
+
+<section class="slide" id="slide-grid" data-title="按关系选择组件">
+  <header class="slide-heading"><div class="part">/ PART 01</div><h2>内容决定版式，组件服务表达</h2><p class="subtitle">同一种纸感风格，容纳不同的信息关系</p></header>
+  <div class="slide-body">
+    <div class="grid cols-3">
+      <article class="info-card"><span class="badge rose">Hero</span><h3>引入一个主题</h3><p>用一句清晰的观点开场，说明这场讲述与听众的关系。</p></article>
+      <article class="info-card"><span class="badge yellow">Window</span><h3>保留原始代码</h3><p>文件标签、深色窗口和复制反馈，承载可复用的代码内容。</p></article>
+      <article class="info-card"><span class="badge blue">Table</span><h3>让差异可比较</h3><p>对齐参数、方案和适用条件，减少来回查找的负担。</p></article>
+      <article class="info-card"><span class="badge cyan">Grid / TwoColumn</span><h3>呈现内容关系</h3><p>平级分类用网格；对比、因果与代码解析可用双栏。</p></article>
+      <article class="info-card"><span class="badge green">Stats</span><h3>突出真实数据</h3><p>只使用原文数据或可验证的计算，没有数字就选择其他组件。</p></article>
+      <article class="info-card"><span class="badge rose">QuoteCard / SlideNav</span><h3>留下结论与路径</h3><p>用信息卡片强调观点，通过真实页码和导航串起讲述。</p></article>
+    </div>
+  </div>
+  <footer class="slide-footer">同级组件共享字号、圆角和留白；页面不必采用相同布局。</footer>
+</section>
+
+<section class="slide" id="slide-window" data-title="代码与解释并排阅读">
+  <header class="slide-heading"><div class="part">/ PART 02</div><h2>代码保持完整，解释紧随其后</h2><p class="subtitle">Window + TwoColumn + 语义标签</p></header>
+  <div class="slide-body">
+    <div class="two-column wide-left">
+      <div class="window-group"><div class="file-label">presentation.json</div><div class="window"><div class="window-bar"><span class="traffic" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title">presentation.json</span><button class="copy-code" type="button">复制</button></div><div class="window-body" tabindex="0" role="region" aria-label="演示配置代码"><pre><code>{
+  "title": "从文本到演示",
+  "theme": "paper",
+  "slides": [
+    {
+      "goal": "说明核心观点",
+      "components": ["Hero"]
+    },
+    {
+      "goal": "比较不同方案",
+      "components": ["Table", "QuoteCard"]
+    }
+  ]
+}</code></pre></div></div></div>
+      <div class="stack">
+        <aside class="note"><span class="badge rose">① title</span><p><strong>先确定讲述主题。</strong>标题概括内容，不把原文第一行机械地当作封面。</p></aside>
+        <aside class="note"><span class="badge yellow">② goal</span><p><strong>每页有自己的任务。</strong>解释一个概念、比较一组方案，或收束一个结论。</p></aside>
+        <aside class="note"><span class="badge cyan">③ components</span><p><strong>按内容自由组合。</strong>页与页可以不同，组件也不需要全部出现。</p></aside>
+        <aside class="note"><span class="badge green">④ 单文件交付</span><p>这段 JSON 仅说明编排思路。实际成品将样式、内容和交互全部内联到 HTML。</p></aside>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">说明性配置示例，不是必须遵循的输入格式；代码可复制，较长内容可在窗口内滚动。</footer>
+</section>
+
+<section class="slide" id="slide-table" data-title="把组件选型讲清楚">
+  <header class="slide-heading"><div class="part">/ PART 03</div><h2>把信息关系，映射为表达方式</h2><p class="subtitle">一张通栏表格，也可以独立成为一页</p></header>
+  <div class="slide-body">
+    <div class="table-wrap" tabindex="0" role="region" aria-label="内容与组件映射表"><table><thead><tr><th scope="col">原文特征</th><th scope="col">优先考虑</th><th scope="col">保留的重点</th></tr></thead><tbody>
+      <tr><td>一个主题或关键结论</td><td class="mono">Hero / QuoteCard</td><td>观点、价值与必要上下文</td></tr>
+      <tr><td>程序、命令或配置</td><td class="mono">Window + TwoColumn</td><td>原始代码和逐段解释</td></tr>
+      <tr><td>可比较的方案或参数</td><td class="mono">Table / TwoColumn</td><td>一致的比较维度与条件</td></tr>
+      <tr><td>平级分类或模块</td><td class="mono">Grid</td><td>类别之间的边界与关系</td></tr>
+      <tr><td>有依据的数据</td><td class="mono">Stats + QuoteCard</td><td>数字、单位、口径和结论</td></tr>
+    </tbody></table></div>
+    <aside class="note"><span class="badge yellow">编排原则</span><p>原文没有的数据不补造；内容过多就拆页，不靠缩小字号容纳整篇文章。</p></aside>
+  </div>
+</section>
+
+<section class="slide" id="slide-compare" data-title="统一风格，自由编排">
+  <header class="slide-heading"><div class="part">/ PART 04</div><h2>统一风格，让每页各有重点</h2><p class="subtitle">TwoColumn + QuoteCard</p></header>
+  <div class="slide-body">
+    <div class="two-column">
+      <article class="compare-panel"><span class="badge rose">原始材料</span><h3>完整，但未必适合演示</h3><ul><li>观点、例子、细节混在一起</li><li>长段落需要逐字阅读</li><li>关系藏在文字顺序之中</li></ul></article>
+      <article class="compare-panel"><span class="badge green">展示网页</span><h3>保留事实，重建阅读顺序</h3><ul><li>每页围绕一个讲述目标</li><li>用组件呈现分类与比较</li><li>必要条件随结论一起保留</li></ul></article>
+    </div>
+    <blockquote class="quote-card"><p>统一的是视觉语言，自由的是内容组织。</p></blockquote>
+  </div>
+</section>
+
+<section class="slide" id="slide-stats" data-title="轻量交付，独立展示">
+  <header class="slide-heading"><div class="part">/ PART 05</div><h2>把演示装进一个文件</h2><p class="subtitle">Stats + QuoteCard，让数字有明确的含义</p></header>
+  <div class="slide-body align-center">
+    <div class="stats" style="width:100%">
+      <article class="stat"><div class="stat-value">1<span>个 HTML</span></div><h3>独立交付</h3><p>内容、样式与交互在同一文件，双击即可打开。</p></article>
+      <article class="stat"><div class="stat-value">8<span>类组件</span></div><h3>自由选择</h3><p>覆盖封面、代码、表格、分类、对比、信息、数据与导航。</p></article>
+      <article class="stat"><div class="stat-value">0<span>项外部依赖</span></div><h3>离线展示</h3><p>成品不加载 CDN、在线字体、框架或模型服务。</p></article>
+    </div>
+    <blockquote class="quote-card" style="width:100%"><p>这些数字描述本组件库与交付方式，不是套用于其他主题的模板数据。</p></blockquote>
+  </div>
+</section>
+
+<section class="slide" id="slide-closing" data-title="从下一份文本开始">
+  <div class="slide-body align-center">
+    <div class="hero center"><div class="part">/ YOUR NEXT PRESENTATION</div><h1>下一次，只需给出文本。</h1><p class="hero-lead">说明主题、受众或讲述时长，<br>AI 会选择合适组件，编排成同一视觉风格的演示网页。</p></div>
+    <blockquote class="quote-card" style="width:100%"><p>调用：使用 <code>$paper-slide-deck</code>，把以下内容制作成可独立打开的 HTML 幻灯片。</p></blockquote>
+  </div>
+  <footer class="slide-footer center">左右方向键翻页 · Home / End 跳到首尾 · F 全屏 · 手机上可横向滑动</footer>
+</section>
+
+  </main>
+  <nav class="slide-nav" aria-label="幻灯片导航">
+    <button class="nav-button nav-prev" type="button" aria-label="上一页"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 16V4M6 8l4-4 4 4"/></svg></button>
+    <div class="nav-dots" aria-label="选择幻灯片"></div>
+    <output class="nav-counter" aria-live="polite" aria-atomic="true"></output>
+    <button class="nav-button nav-next" type="button" aria-label="下一页"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12M6 12l4 4 4-4"/></svg></button>
+    <button class="nav-button nav-fullscreen" type="button" aria-label="进入全屏"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 8V3h5M12 3h5v5M17 12v5h-5M8 17H3v-5"/></svg></button>
+  </nav>
+  <div class="deck-status" role="status" aria-live="polite"></div>
+  <noscript><div class="no-script">JavaScript 未启用，以下以连续阅读方式展示全部页面。</div></noscript>
+  <script>(()=>{
+  'use strict';
+  const slides=[...document.querySelectorAll('#deck > .slide')];
+  if(!slides.length)return;
+  const root=document.documentElement,nav=document.querySelector('.slide-nav'),dotsHost=nav.querySelector('.nav-dots');
+  const prev=nav.querySelector('.nav-prev'),next=nav.querySelector('.nav-next'),counter=nav.querySelector('.nav-counter');
+  const full=nav.querySelector('.nav-fullscreen'),status=document.querySelector('.deck-status');
+  const mobile=matchMedia('(max-width:720px)');
+  let current=0,touch=null,statusTimer;
+  function announce(message){status.textContent=message;clearTimeout(statusTimer);statusTimer=setTimeout(()=>status.textContent='',3200)}
+  const dots=slides.map((slide,i)=>{
+    const title=slide.dataset.title||slide.querySelector('h1,h2,h3')?.textContent.trim()||`第 ${i+1} 页`;
+    slide.id=slide.id||`slide-${i+1}`;
+    slide.setAttribute('role','group');slide.setAttribute('aria-roledescription','幻灯片');slide.setAttribute('aria-label',`${i+1} / ${slides.length} · ${title}`);
+    const dot=document.createElement('button');dot.type='button';dot.className='nav-dot';dot.title=title;dot.setAttribute('aria-label',`第 ${i+1} 页：${title}`);dot.setAttribute('aria-controls',slide.id);dot.addEventListener('click',()=>go(i));dotsHost.append(dot);return dot;
+  });
+  function fit(){root.style.setProperty('--deck-scale',Math.min((innerWidth-108)/1440,(innerHeight-42)/810))}
+  function fromHash(){let id;try{id=decodeURIComponent(location.hash.slice(1))}catch{return 0}const found=slides.findIndex(s=>s.id===id);return found<0?0:found}
+  function go(index,{writeHash=true}={}){
+    const target=Math.max(0,Math.min(slides.length-1,index));
+    const focusedSlide=document.activeElement?.closest('.slide');
+    if(focusedSlide&&focusedSlide!==slides[target])document.activeElement.blur();
+    const changed=current!==target;current=target;
+    slides.forEach((slide,i)=>{const active=i===current;slide.hidden=!active;slide.inert=!active;slide.classList.toggle('is-active',active);slide.setAttribute('aria-hidden',String(!active));if(active)dots[i].setAttribute('aria-current','step');else dots[i].removeAttribute('aria-current')});
+    counter.textContent=`${current+1}/${slides.length}`;prev.disabled=current===0;next.disabled=current===slides.length-1;
+    if(writeHash){try{history.replaceState(null,'','#'+encodeURIComponent(slides[current].id))}catch{/* File origins may restrict history. */}}
+    const dot=dots[current];
+    if(mobile.matches){dotsHost.scrollTo({left:Math.max(0,dot.offsetLeft-dotsHost.clientWidth/2),behavior:'auto'});if(changed)window.scrollTo({top:0,behavior:'instant'})}
+    else dotsHost.scrollTo({top:Math.max(0,dot.offsetTop-dotsHost.clientHeight/2),behavior:'auto'});
+  }
+  async function fullscreen(){
+    const pending=setTimeout(()=>{if(!document.fullscreenElement)announce('未能进入全屏，请使用浏览器自带的全屏功能。')},1200);
+    try{if(document.fullscreenElement)await document.exitFullscreen();else if(root.requestFullscreen)await root.requestFullscreen();else throw new Error('unsupported');clearTimeout(pending)}
+    catch{clearTimeout(pending);announce('当前浏览器未开放全屏，可使用浏览器自身的全屏功能。')}
+  }
+  function interactive(target){return !!target.closest('input,textarea,select,button,a,[contenteditable="true"],.window-body,.table-wrap,[data-interactive]')}
+  document.body.classList.add('deck-ready');fit();go(fromHash(),{writeHash:false});
+  prev.addEventListener('click',()=>go(current-1));next.addEventListener('click',()=>go(current+1));full.addEventListener('click',fullscreen);
+  document.addEventListener('fullscreenchange',()=>{full.setAttribute('aria-label',document.fullscreenElement?'退出全屏':'进入全屏');fit()});
+  addEventListener('resize',fit);addEventListener('hashchange',()=>go(fromHash(),{writeHash:false}));
+  document.addEventListener('keydown',event=>{
+    const navKey=event.target.closest('.slide-nav')&&['ArrowRight','ArrowLeft','PageDown','PageUp','Home','End','f','F'].includes(event.key);
+    if(event.defaultPrevented||event.altKey||event.ctrlKey||event.metaKey||(interactive(event.target)&&!navKey))return;
+    if(['ArrowRight','PageDown',' '].includes(event.key)){event.preventDefault();go(current+1)}
+    else if(['ArrowLeft','PageUp'].includes(event.key)){event.preventDefault();go(current-1)}
+    else if(event.key==='Home'){event.preventDefault();go(0)}
+    else if(event.key==='End'){event.preventDefault();go(slides.length-1)}
+    else if(event.key.toLowerCase()==='f'){event.preventDefault();fullscreen()}
+  });
+  document.querySelector('#deck').addEventListener('touchstart',event=>{touch=null;if(event.touches.length===1&&!interactive(event.target)){const point=event.touches[0];touch={x:point.clientX,y:point.clientY,id:point.identifier}}},{passive:true});
+  document.querySelector('#deck').addEventListener('touchend',event=>{if(!touch)return;const point=[...event.changedTouches].find(p=>p.identifier===touch.id);if(!point)return;const dx=point.clientX-touch.x,dy=point.clientY-touch.y;touch=null;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.5&&!getSelection()?.toString())go(current+(dx<0?1:-1))},{passive:true});
+  document.querySelector('#deck').addEventListener('touchcancel',()=>{touch=null});
+  async function copyText(text){
+    try{if(navigator.clipboard&&isSecureContext){await navigator.clipboard.writeText(text);return true}}catch{/* Fall back on file origins or denied clipboard permissions. */}
+    const field=document.createElement('textarea');field.value=text;field.style.cssText='position:fixed;left:-9999px;top:0';field.setAttribute('aria-hidden','true');document.body.append(field);field.select();let ok=false;try{ok=document.execCommand('copy')}finally{field.remove()}return ok;
+  }
+  document.querySelectorAll('.copy-code').forEach(button=>{
+    let timer;button.addEventListener('click',async()=>{
+      const code=button.closest('.window')?.querySelector('pre code');if(!code)return;
+      let ok=false;try{ok=await copyText(code.textContent)}catch{/* Selection fallback below. */}
+      if(ok){button.textContent='已复制';announce('代码已复制')}else{const range=document.createRange();range.selectNodeContents(code);getSelection().removeAllRanges();getSelection().addRange(range);button.textContent='请选中复制';announce('请复制已选中的代码')}
+      clearTimeout(timer);timer=setTimeout(()=>button.textContent='复制',1800);
+    });
+  });
+})();
+</script>
+</body>
+</html>

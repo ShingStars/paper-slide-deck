@@ -1,0 +1,4 @@
+interface:
+  display_name: "纸感网页演示"
+  short_description: "将文本编排为统一纸感风格的单文件 HTML 幻灯片，组件自由组合、离线翻页展示"
+  default_prompt: "使用 $paper-slide-deck 将我提供的文本整理成统一纸感视觉风格的单文件 HTML 幻灯片，根据内容自由搭配组件。"

@@ -1,0 +1,100 @@
+<section class="slide" id="slide-cover" data-title="让文本成为一场讲述">
+  <div class="slide-body">
+    <div class="hero">
+      <div class="part">/ PAPER SLIDE DECK</div>
+      <h1>让文本<br>成为一场讲述。</h1>
+      <p class="hero-lead">保留米白纸张的温度，让代码、表格、卡片与结论<br>在同一套视觉语言中，自由组合。</p>
+      <div class="tag-row"><span class="badge rose">内容驱动编排</span><span class="badge cyan">单文件 · 可离线打开</span><span class="badge blue">真实幻灯片导航</span></div>
+    </div>
+  </div>
+  <footer class="slide-footer">组件示例演示文稿 · 使用方向键或右侧圆点翻页</footer>
+</section>
+
+<section class="slide" id="slide-grid" data-title="按关系选择组件">
+  <header class="slide-heading"><div class="part">/ PART 01</div><h2>内容决定版式，组件服务表达</h2><p class="subtitle">同一种纸感风格，容纳不同的信息关系</p></header>
+  <div class="slide-body">
+    <div class="grid cols-3">
+      <article class="info-card"><span class="badge rose">Hero</span><h3>引入一个主题</h3><p>用一句清晰的观点开场，说明这场讲述与听众的关系。</p></article>
+      <article class="info-card"><span class="badge yellow">Window</span><h3>保留原始代码</h3><p>文件标签、深色窗口和复制反馈，承载可复用的代码内容。</p></article>
+      <article class="info-card"><span class="badge blue">Table</span><h3>让差异可比较</h3><p>对齐参数、方案和适用条件，减少来回查找的负担。</p></article>
+      <article class="info-card"><span class="badge cyan">Grid / TwoColumn</span><h3>呈现内容关系</h3><p>平级分类用网格；对比、因果与代码解析可用双栏。</p></article>
+      <article class="info-card"><span class="badge green">Stats</span><h3>突出真实数据</h3><p>只使用原文数据或可验证的计算，没有数字就选择其他组件。</p></article>
+      <article class="info-card"><span class="badge rose">QuoteCard / SlideNav</span><h3>留下结论与路径</h3><p>用信息卡片强调观点，通过真实页码和导航串起讲述。</p></article>
+    </div>
+  </div>
+  <footer class="slide-footer">同级组件共享字号、圆角和留白；页面不必采用相同布局。</footer>
+</section>
+
+<section class="slide" id="slide-window" data-title="代码与解释并排阅读">
+  <header class="slide-heading"><div class="part">/ PART 02</div><h2>代码保持完整，解释紧随其后</h2><p class="subtitle">Window + TwoColumn + 语义标签</p></header>
+  <div class="slide-body">
+    <div class="two-column wide-left">
+      <div class="window-group"><div class="file-label">presentation.json</div><div class="window"><div class="window-bar"><span class="traffic" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title">presentation.json</span><button class="copy-code" type="button">复制</button></div><div class="window-body" tabindex="0" role="region" aria-label="演示配置代码"><pre><code>{
+  "title": "从文本到演示",
+  "theme": "paper",
+  "slides": [
+    {
+      "goal": "说明核心观点",
+      "components": ["Hero"]
+    },
+    {
+      "goal": "比较不同方案",
+      "components": ["Table", "QuoteCard"]
+    }
+  ]
+}</code></pre></div></div></div>
+      <div class="stack">
+        <aside class="note"><span class="badge rose">① title</span><p><strong>先确定讲述主题。</strong>标题概括内容，不把原文第一行机械地当作封面。</p></aside>
+        <aside class="note"><span class="badge yellow">② goal</span><p><strong>每页有自己的任务。</strong>解释一个概念、比较一组方案，或收束一个结论。</p></aside>
+        <aside class="note"><span class="badge cyan">③ components</span><p><strong>按内容自由组合。</strong>页与页可以不同，组件也不需要全部出现。</p></aside>
+        <aside class="note"><span class="badge green">④ 单文件交付</span><p>这段 JSON 仅说明编排思路。实际成品将样式、内容和交互全部内联到 HTML。</p></aside>
+      </div>
+    </div>
+  </div>
+  <footer class="slide-footer">说明性配置示例，不是必须遵循的输入格式；代码可复制，较长内容可在窗口内滚动。</footer>
+</section>
+
+<section class="slide" id="slide-table" data-title="把组件选型讲清楚">
+  <header class="slide-heading"><div class="part">/ PART 03</div><h2>把信息关系，映射为表达方式</h2><p class="subtitle">一张通栏表格，也可以独立成为一页</p></header>
+  <div class="slide-body">
+    <div class="table-wrap" tabindex="0" role="region" aria-label="内容与组件映射表"><table><thead><tr><th scope="col">原文特征</th><th scope="col">优先考虑</th><th scope="col">保留的重点</th></tr></thead><tbody>
+      <tr><td>一个主题或关键结论</td><td class="mono">Hero / QuoteCard</td><td>观点、价值与必要上下文</td></tr>
+      <tr><td>程序、命令或配置</td><td class="mono">Window + TwoColumn</td><td>原始代码和逐段解释</td></tr>
+      <tr><td>可比较的方案或参数</td><td class="mono">Table / TwoColumn</td><td>一致的比较维度与条件</td></tr>
+      <tr><td>平级分类或模块</td><td class="mono">Grid</td><td>类别之间的边界与关系</td></tr>
+      <tr><td>有依据的数据</td><td class="mono">Stats + QuoteCard</td><td>数字、单位、口径和结论</td></tr>
+    </tbody></table></div>
+    <aside class="note"><span class="badge yellow">编排原则</span><p>原文没有的数据不补造；内容过多就拆页，不靠缩小字号容纳整篇文章。</p></aside>
+  </div>
+</section>
+
+<section class="slide" id="slide-compare" data-title="统一风格，自由编排">
+  <header class="slide-heading"><div class="part">/ PART 04</div><h2>统一风格，让每页各有重点</h2><p class="subtitle">TwoColumn + QuoteCard</p></header>
+  <div class="slide-body">
+    <div class="two-column">
+      <article class="compare-panel"><span class="badge rose">原始材料</span><h3>完整，但未必适合演示</h3><ul><li>观点、例子、细节混在一起</li><li>长段落需要逐字阅读</li><li>关系藏在文字顺序之中</li></ul></article>
+      <article class="compare-panel"><span class="badge green">展示网页</span><h3>保留事实，重建阅读顺序</h3><ul><li>每页围绕一个讲述目标</li><li>用组件呈现分类与比较</li><li>必要条件随结论一起保留</li></ul></article>
+    </div>
+    <blockquote class="quote-card"><p>统一的是视觉语言，自由的是内容组织。</p></blockquote>
+  </div>
+</section>
+
+<section class="slide" id="slide-stats" data-title="轻量交付，独立展示">
+  <header class="slide-heading"><div class="part">/ PART 05</div><h2>把演示装进一个文件</h2><p class="subtitle">Stats + QuoteCard，让数字有明确的含义</p></header>
+  <div class="slide-body align-center">
+    <div class="stats" style="width:100%">
+      <article class="stat"><div class="stat-value">1<span>个 HTML</span></div><h3>独立交付</h3><p>内容、样式与交互在同一文件，双击即可打开。</p></article>
+      <article class="stat"><div class="stat-value">8<span>类组件</span></div><h3>自由选择</h3><p>覆盖封面、代码、表格、分类、对比、信息、数据与导航。</p></article>
+      <article class="stat"><div class="stat-value">0<span>项外部依赖</span></div><h3>离线展示</h3><p>成品不加载 CDN、在线字体、框架或模型服务。</p></article>
+    </div>
+    <blockquote class="quote-card" style="width:100%"><p>这些数字描述本组件库与交付方式，不是套用于其他主题的模板数据。</p></blockquote>
+  </div>
+</section>
+
+<section class="slide" id="slide-closing" data-title="从下一份文本开始">
+  <div class="slide-body align-center">
+    <div class="hero center"><div class="part">/ YOUR NEXT PRESENTATION</div><h1>下一次，只需给出文本。</h1><p class="hero-lead">说明主题、受众或讲述时长，<br>AI 会选择合适组件，编排成同一视觉风格的演示网页。</p></div>
+    <blockquote class="quote-card" style="width:100%"><p>调用：使用 <code>$paper-slide-deck</code>，把以下内容制作成可独立打开的 HTML 幻灯片。</p></blockquote>
+  </div>
+  <footer class="slide-footer center">左右方向键翻页 · Home / End 跳到首尾 · F 全屏 · 手机上可横向滑动</footer>
+</section>
